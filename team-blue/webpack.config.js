@@ -1,12 +1,11 @@
+require('dotenv').config();
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HashOutput = require('webpack-plugin-hash-output');
 
-const dev = process.env.NODE_ENV !== "production";
-
 module.exports = {
-  mode: dev ? "development" : "production",
+  mode: process.env.NODE_ENV,
   entry: path.join(__dirname, 'src', 'client', 'client.js'),
   module: {
     rules: [{
@@ -32,8 +31,8 @@ module.exports = {
     new HashOutput()
   ],
   output: {
+    filename: '[name].[chunkhash].js',
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    publicPath: `${process.env.PUBLIC_PATH}:${process.env.PORT}`
   }
 };
-

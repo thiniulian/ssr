@@ -3,20 +3,27 @@
   "version": "1.0.0",
   "description": "Skeleton",
   "scripts": {
-    "start": "nodemon src/server.js --exec babel-node"
+    "start": "nodemon src/server.js --exec babel-node",
+    "lint": "eslint src"
   },
   "author": "Daniel Dughila",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "6.1.0",
     "ejs": "2.6.1",
     "express": "4.16.4",
-    "request": "2.88.0",
-    "http-proxy-middleware": "0.19.0"
+    "request": "2.88.0"
   },
   "devDependencies": {
     "@babel/core": "7.1.2",
     "@babel/node": "7.0.0",
     "@babel/preset-env": "7.1.0",
+    "babel-eslint": "10.0.1",
+    "eslint": "5.7.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
     "nodemon": "1.18.4"
   }
 }

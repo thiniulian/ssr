@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "react server side rendering test",
   "scripts": {
-    "start": "webpack && nodemon src/server.js --exec babel-node"
+    "start": "webpack && nodemon src/server.js --exec babel-node",
+    "lint": "eslint src"
   },
   "keywords": [
     "ssr"
@@ -11,6 +12,7 @@
   "author": "Daniel Dughila",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "6.1.0",
     "ejs": "2.6.1",
     "express": "4.16.4",
     "react": "16.5.2",
@@ -30,6 +32,12 @@
     "style-loader": "0.23.1",
     "webpack": "4.20.2",
     "webpack-cli": "3.1.2",
-    "webpack-plugin-hash-output": "3.1.0"
+    "webpack-plugin-hash-output": "3.1.0",
+    "babel-eslint": "10.0.1",
+    "eslint": "5.7.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1"
   }
 }
