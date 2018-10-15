@@ -6,16 +6,24 @@ import getContents from './getContents';
 
 const server = express();
 
+server.use(express.static(path.join('dist')));
+
 server
   .set('view engine', 'ejs')
-  .set('views', path.resolve('src', 'views'));
+  .set('views', path.join('dist'));
 
 server.get('/', (req, res) => Promise
   .all([
-    getContents(process.env.TEAM_BLUE_URL)
+    getContents(process.env.TEAM_BLUE_URL),
+    getContents(process.env.TEAM_GREEN_URL),
+    getContents(process.env.TEAM_RED_URL)
   ])
   .then((responses) => {
-    res.render('index', { teamBlue: responses[0] });
+    res.render('index', {
+      teamBlue: responses[0],
+      teamGreen: responses[1],
+      teamRed: responses[2]
+    });
   }).catch(error => res.send(error.message)));
 
 server.listen(process.env.PORT, () => {

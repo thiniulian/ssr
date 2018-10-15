@@ -1,7 +1,7 @@
 {
-  "name": "teamblue",
+  "name": "teamgreen",
   "version": "1.0.0",
-  "description": "TeamBlue",
+  "description": "TeamGreen",
   "scripts": {
     "start": "webpack && nodemon src/server.js --exec babel-node",
     "lint": "eslint src"

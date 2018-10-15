@@ -6,20 +6,17 @@ import { renderToString } from 'react-dom/server';
 
 import Layout from './client/components/Layout';
 
-const server = express();
-
-server.use(express.static(path.join('dist')));
-
-server
+const app = express()
+  .use(express.static(path.join('dist')))
   .set('view engine', 'ejs')
-  .set('views', path.join('dist'));
+  .set('views', path.resolve('dist'));
 
-server.get('/*', (req, res) => {
+app.get('/*', (req, res) => {
   res.render('index', {
     reactDom: renderToString(<Layout />)
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log(`TeamBlue app is listening on port: ${process.env.NODE_ENV}`);
+app.listen(process.env.PORT, () => {
+  console.log(`TeamRed app is listening on port: ${process.env.NODE_ENV}`);
 });

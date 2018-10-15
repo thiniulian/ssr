@@ -3,6 +3,10 @@
   "extends": [
     "airbnb"
   ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "rules": {
     "comma-dangle": "off"
   }
