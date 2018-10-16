@@ -1,8 +1,8 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 
-import { Product } from './components/Product';
+import Products from './components/Products/Products';
 
 const app = document.getElementById('team-red-app');
 
-hydrate(<Product />, app);
+hydrate(<Products />, app);

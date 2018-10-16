@@ -1,10 +1,11 @@
 import 'dotenv/config';
+import 'ignore-styles';
 import express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import Layout from './client/components/Layout';
+import RelatedProducts from './client/components/RelatedProducts/RelatedProducts';
 
 const app = express()
   .use(express.static(path.join('dist')))
@@ -13,7 +14,7 @@ const app = express()
 
 app.get('/*', (req, res) => {
   res.render('index', {
-    reactDom: renderToString(<Layout />)
+    teamGreen: renderToString(<RelatedProducts />)
   });
 });
 

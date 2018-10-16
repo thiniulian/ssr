@@ -17,7 +17,6 @@
           ".jsx"
         ]
       }
-    ],
-    "import/prefer-default-export": false
+    ]
   }
 }

@@ -1,22 +1,22 @@
 import 'dotenv/config';
+import 'ignore-styles';
 import express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import { Product } from './client/components/Product';
+import Products from './client/components/Products/Products';
 
 const app = express();
 
-app.use(express.static(path.join('dist')))
-  .use(express.static(path.join('src', 'client', 'assets')));
+app.use(express.static(path.join('dist')));
 
 app.set('view engine', 'ejs')
   .set('views', path.join('dist'));
 
 app.get('/*', (req, res) => {
   res.render('index', {
-    teamRed: renderToString(<Product />)
+    teamRed: renderToString(<Products />)
   });
 });
 

@@ -1,10 +1,11 @@
 import 'dotenv/config';
+import 'ignore-styles';
 import express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import Layout from './client/components/Layout';
+import Checkout from './client/components/Checkout/Checkout';
 
 const server = express();
 
@@ -16,7 +17,7 @@ server
 
 server.get('/*', (req, res) => {
   res.render('index', {
-    reactDom: renderToString(<Layout />)
+    teamBlue: renderToString(<Checkout />)
   });
 });
 

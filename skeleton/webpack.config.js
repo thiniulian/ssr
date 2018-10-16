@@ -7,7 +7,7 @@ const HashOutput = require('webpack-plugin-hash-output');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: path.join(__dirname, 'src', 'client', 'client.js'),
+  entry: path.join(__dirname, 'src', 'client', 'index.js'),
   module: {
     rules: [{
       test: /\.js?$/,

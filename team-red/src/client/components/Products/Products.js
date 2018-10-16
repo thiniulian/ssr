@@ -1,6 +1,7 @@
+import './Products.css';
 import React from 'react';
 
-export class Product extends React.Component {
+export default class Products extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -24,10 +25,12 @@ export class Product extends React.Component {
     const { products } = this.state;
     return (
       <div>
+        <h1>Products</h1>
         {
           products.map(product => (
             <img
-              src={`${process.env.PUBLIC_PATH}:${process.env.PORT}/${product.image}`}
+              className="product-img"
+              src={`${process.env.PUBLIC_PATH}:${process.env.PORT}/assets/${product.image}`}
               alt={product.name}
               key={product.name}
             />
