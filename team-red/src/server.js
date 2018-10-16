@@ -4,16 +4,19 @@ import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import Layout from './client/components/Layout';
+import { Product } from './client/components/Product';
 
-const app = express()
-  .use(express.static(path.join('dist')))
-  .set('view engine', 'ejs')
-  .set('views', path.resolve('dist'));
+const app = express();
+
+app.use(express.static(path.join('dist')))
+  .use(express.static(path.join('src', 'client', 'assets')));
+
+app.set('view engine', 'ejs')
+  .set('views', path.join('dist'));
 
 app.get('/*', (req, res) => {
   res.render('index', {
-    reactDom: renderToString(<Layout />)
+    teamRed: renderToString(<Product />)
   });
 });
 

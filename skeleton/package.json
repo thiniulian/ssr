@@ -4,7 +4,7 @@
   "description": "Skeleton",
   "scripts": {
     "lint": "eslint src",
-    "start:client": "webpack --watch ",
+    "start:client": "webpack --watch",
     "start:server": "nodemon src/server/server.js --exec babel-node",
     "start": "run-p start:client start:server"
   },

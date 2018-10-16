@@ -1,5 +1,6 @@
 require('dotenv').config();
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HashOutput = require('webpack-plugin-hash-output');
@@ -22,9 +23,10 @@ module.exports = {
     'react-dom': ['ReactDOM']
   },
   plugins: [
+    new Dotenv(),
     new CleanWebpackPlugin(path.join(__dirname, 'dist')),
     new HtmlWebpackPlugin({
-      reactDom: '<%- reactDom %>',
+      teamRed: '<%- teamRed %>',
       template: path.join(__dirname, 'src', 'client', 'public', 'index.ejs'),
       filename: 'index.ejs'
     }),
