@@ -1,31 +1,25 @@
 import 'dotenv/config';
-import express from 'express';
 import path from 'path';
+import express from 'express';
+import bodyParser from 'body-parser';
 
-import getContents from './getContents';
+import SpaceshipPartsRouter from './routers/SpaceshipPartsRouter';
+import StaticRouter from './routers/StaticRouter';
 
 const server = express();
 
-server.use(express.static(path.join('dist')));
-server.use('/assets', express.static(path.join('src', 'server', 'assets')));
+server
+  .use(bodyParser.json())
+  .use(express.static(path.join('dist')))
+  .use('/assets', express.static(path.join('src', 'server', 'assets')));
 
 server
   .set('view engine', 'ejs')
   .set('views', path.join('dist'));
 
-server.get('/', (req, res) => Promise
-  .all([
-    getContents(process.env.TEAM_BLUE_URL),
-    getContents(process.env.TEAM_GREEN_URL),
-    getContents(process.env.TEAM_RED_URL)
-  ])
-  .then((responses) => {
-    res.render('index', {
-      teamBlue: responses[0],
-      teamGreen: responses[1],
-      teamRed: responses[2]
-    });
-  }).catch(error => res.send(error.message)));
+server
+  .get('/api/v1/spaceship-parts', SpaceshipPartsRouter)
+  .get('*', StaticRouter);
 
 server.listen(process.env.PORT, () => {
   console.log(`Skeleton app is listening on port: ${process.env.NODE_ENV}`);
