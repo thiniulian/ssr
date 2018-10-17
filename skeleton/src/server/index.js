@@ -7,6 +7,7 @@ import getContents from './getContents';
 const server = express();
 
 server.use(express.static(path.join('dist')));
+server.use('/assets', express.static(path.join('src', 'server', 'assets')));
 
 server
   .set('view engine', 'ejs')

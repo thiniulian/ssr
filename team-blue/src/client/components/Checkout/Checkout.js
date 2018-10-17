@@ -6,18 +6,19 @@ export default class Checkout extends React.Component {
     super();
     this.state = {
       title: 'Checkout',
-      url: `${process.env.PUBLIC_PATH}:${process.env.PORT}/assets/tractor-blue.jpg`
+      url: `${process.env.PUBLIC_PATH}:${process.env.PORT}/assets/tractor-blue.jpg`,
+      url2: 'http://localhost:3000/assets/darth-vader.jpg'
     };
   }
 
   render() {
-    const { title, url } = this.state;
+    const { title, url2 } = this.state;
     return (
       <div>
         <h1>{title}</h1>
         <img
           className="checkout-img"
-          src={url}
+          src={url2}
           alt={title}
         />
       </div>
