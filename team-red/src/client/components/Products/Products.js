@@ -11,7 +11,7 @@ export default class Products extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof window !== 'undefined' && typeof fetch !== 'undefined') {
+    if (typeof fetch !== 'undefined') {
       fetch(`${process.env.API_URL}/spaceship-parts`)
         .then(response => response.json())
         .then((spaceshipParts) => {
