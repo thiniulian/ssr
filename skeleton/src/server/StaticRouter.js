@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import getContents from '../services/getContents';
+import getContents from './getContents';
 
 const StaticRouter = Router();
 

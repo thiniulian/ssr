@@ -5,17 +5,20 @@
   "scripts": {
     "lint": "eslint src",
     "start:client": "webpack --watch",
-    "start:server": "nodemon src/server.js --exec babel-node",
+    "start:server": "nodemon src/server/index.js --exec babel-node",
     "start": "run-p start:client start:server"
   },
   "author": "3PillarGlobal",
   "repository": "https://github.com/intojs/ssr.git",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "1.18.3",
+    "cors": "2.8.4",
     "dotenv": "6.1.0",
     "ejs": "2.6.1",
     "express": "4.16.4",
     "ignore-styles": "5.0.1",
+    "prop-types": "^15.6.2",
     "react": "16.5.2",
     "react-dom": "16.5.2"
   },

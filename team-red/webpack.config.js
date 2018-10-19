@@ -28,6 +28,7 @@ module.exports = {
     new CleanWebpackPlugin(path.join(__dirname, 'dist')),
     new HtmlWebpackPlugin({
       teamRed: '<%- teamRed %>',
+      spaceships: '<%- spaceships %>',
       template: path.join(__dirname, 'src', 'client', 'index.ejs'),
       filename: 'index.ejs'
     }),
