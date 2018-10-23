@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Starship Configurator</title>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
+</head>
+<body>
+<% for(var i = 0; i < htmlWebpackPlugin.files.js.length; i++) { %>
+  <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[i] %>"></script>
+<% } %>
+
+<div class="container">
+  <header class="row">
+    <div class="col-sm-12">
+      <div class="game-title">
+        <h1 class="game-title__inner-text">
+          <span class="game-title__logo">3PG</span>
+          <br />
+          FLEET
+          <br />
+          CONFIGURATOR
+        </h1>
+      </div>
+      <%= htmlWebpackPlugin.options.fragments.blue %>
+    </div>
+  </header>
+  <div class="row">
+    <main class="col-md-8">
+      <%= htmlWebpackPlugin.options.fragments.red %>
+    </main>
+    <aside class="col-md-4">
+      <%= htmlWebpackPlugin.options.fragments.green %>
+    </aside>
+  </div>
+</div>
+</body>
+</html>
